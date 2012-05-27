@@ -18,17 +18,19 @@
 Create a screenshot by creating a new `Screenshot` object.
 Of a window (by handle):
 
-    var WindowScreenshot = new Screenshot(targetWindowHandle, ScreenshotMethod.DWM, true);
+    var WindowScreenshot = new ComposedScreenshot(targetWindowHandle, ScreenshotMethod.DWM, true);
 
 or, of a rect:
 
-    var RectScreenshot = new Screenshot(new Rectangle(0,0,100,100));
+    var RectScreenshot = new ComposedScreenshot(new Rectangle(0,0,100,100));
 
+The `Screenshot` class is only responsible for creating the raw screenshot object.
 This creates an object with various useful metadata properties (screen location, window title, etc). `BaseScreenshotImage` is a bitmap with the image data.
 
-This library is only responsible for creating the raw screenshot object.
-If you want rounded corners or compositing multiple screesnots, that it's up to the library consumer.
-See **[ProSnap](https://github.com/factormystic/ProSnap)** for an example of how I did it.
+If you want a slightly nicer endpoint, that it's accomplished with `ComposedScreenshot`.
+This class has more advanced functionality such as maintaining a composition stack, rounding corners, and adding a shadow effect.
+
+See **[ProSnap](https://github.com/factormystic/ProSnap)** for an example of how I built an end-user application out of it.
 
 
 ### Where you can help
