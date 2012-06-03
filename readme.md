@@ -10,6 +10,10 @@
 (but you can use it for whatever - see _license.txt_)
 
 
+### Nuget
+    Install-Package FMUtils.Screenshot
+
+
 ### State of the Code
 - Mostly operational
 
