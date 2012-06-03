@@ -28,10 +28,10 @@ or
 
     new ComposedScreenshot(new Rectangle(0,0,100,100)).ComposedScreenshotImage.Save("example-screenshot.png", ImageFormat.Png);
 
-The `ComposedScreenshot` object subclasses the lower level `Screenshot` object, and provides additional useful functionality such as composing multiple captured screenshots into a single image.
-`ComposedScreenshotImage` is a bitmap with the image data.
+`ComposedScreenshot` is the main control object.
+This itself subclasses the lower level `Screenshot` object, and builds it out with additional useful functionality, such as a composition stack, rounding corners, and shadow effect functionality.
+You get the image out with the `ComposedScreenshot.ComposedScreenshotImage` property.
 
-`ComposedScreenshot` also provides a composition stack, rounding corners, and shadow effect functionality.
 
 See **[ProSnap](https://github.com/factormystic/ProSnap)** for an example of how I built an end-user application out of it.
 
