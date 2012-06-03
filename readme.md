@@ -19,20 +19,19 @@
 
 
 ### Usage
-Create a screenshot by creating a new `Screenshot` object.
-Of a window (by handle):
+Create a screenshot by creating a new `ComposedScreenshot` object.
+Strictly speaking, the only decision you need to make is whether to pass a Rectangle or window handle.
 
-    var WindowScreenshot = new ComposedScreenshot(targetWindowHandle, ScreenshotMethod.DWM, true);
+    new ComposedScreenshot(this.Handle).ComposedScreenshotImage.Save("example-screenshot.png", ImageFormat.Png);
 
-or, of a rect:
+or
 
-    var RectScreenshot = new ComposedScreenshot(new Rectangle(0,0,100,100));
+    new ComposedScreenshot(new Rectangle(0,0,100,100)).ComposedScreenshotImage.Save("example-screenshot.png", ImageFormat.Png);
 
-The `Screenshot` class is only responsible for creating the raw screenshot object.
-This creates an object with various useful metadata properties (screen location, window title, etc). `BaseScreenshotImage` is a bitmap with the image data.
+The `ComposedScreenshot` object subclasses the lower level `Screenshot` object, and provides additional useful functionality such as composing multiple captured screenshots into a single image.
+`ComposedScreenshotImage` is a bitmap with the image data.
 
-If you want a slightly nicer endpoint, that it's accomplished with `ComposedScreenshot`.
-This class has more advanced functionality such as maintaining a composition stack, rounding corners, and adding a shadow effect.
+`ComposedScreenshot` also provides a composition stack, rounding corners, and shadow effect functionality.
 
 See **[ProSnap](https://github.com/factormystic/ProSnap)** for an example of how I built an end-user application out of it.
 
